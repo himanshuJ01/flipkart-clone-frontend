@@ -1,0 +1,77 @@
+
+<div class="bootstrap-wrapper mt-3">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <h2 class=" title text-center">Customer Registration</h2>
+        <mat-card  style="width:auto">
+      
+          <form #regForm="ngForm" (ngSubmit)="formSubmit()" novalidate>
+            <mat-form-field  class="full-width" appearance="outline">
+              <mat-label>Customer Id</mat-label>
+              <input [(ngModel)]="customer.customerId" required minlength="2" maxlength="4" name="customerId"
+               matInput placeholder="Enter cutomer id" #customerId="ngModel"> 
+            </mat-form-field>
+            <div *ngIf="customerId.invalid && (customerId.dirty || customerId.touched)"
+             class="alert alert-danger">Customer Id is required</div>
+            
+            <mat-form-field  class="full-width" appearance="outline">
+              <mat-label>Full Name</mat-label>
+              <input [(ngModel)]="customer.fullName" required minlength="5" maxlength="15" name="fullName"
+               matInput placeholder="Enter your full name" #fullName="ngModel">
+            </mat-form-field>
+            <div *ngIf="fullName.invalid && (fullName.dirty || fullName.touched)"
+             class="alert alert-danger">Full Name is required.</div>
+          <br>
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Email</mat-label>
+          <input  [(ngModel)]="customer.email" required email name="email"
+          matInput placeholder="Enter your email" #email="ngModel">
+        </mat-form-field>
+        <div *ngIf="email.invalid && (email.dirty || email.touched)"
+             class="alert alert-danger">Email Id is required</div>
+      <br>
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Mobile Number</mat-label>
+        <input [(ngModel)]="customer.mobileNumber" required maxlength="10" minlength="10" name="mobileNumber"
+        matInput placeholder="Enter your mobile number" #mobileNumber="ngModel">
+      </mat-form-field>
+      <div *ngIf="mobileNumber.invalid && (mobileNumber.dirty || mobileNumber.touched)"
+             class="alert alert-danger">Phone Number is required</div>
+    <br>
+    
+      <mat-label>Gender </mat-label>
+      <input type="radio" value="Male" required  [(ngModel)]="customer.gender" name="gender"
+       > Male
+       <input type="radio" value="Female" required [(ngModel)]="customer.gender" name="gender"
+      > Female
+      
+
+  <br>
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Password</mat-label>
+          <input [(ngModel)]="customer.password"  name="password"
+           type="password" matInput placeholder="Enter your password" required minlength="4" #password="ngModel"> 
+        </mat-form-field>
+        <div *ngIf="password.invalid && (password.dirty || password.touched)"
+             class="alert alert-danger">Password is required. Must contain 4 letters</div>
+       <br>
+         <div class="text-center">
+          <button type="submit"  mat-raised-button color="primary"  [disabled] = "!regForm.form.valid">Register</button>
+         </div>
+        
+        
+      </form> 
+      <br>
+      
+      
+      
+      </mat-card>
+      </div>
+    
+      </div>
+    </div>
+  
+    </div>
+
+

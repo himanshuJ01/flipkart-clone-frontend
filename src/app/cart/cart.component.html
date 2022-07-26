@@ -1,0 +1,52 @@
+<div class="bootstrap-wrapper mt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <h2 class=" title text-center">Cart Details</h2>
+        <mat-card class="" style="width:auto">
+        
+        
+          <!-- cart form  -->
+          <form (ngSubmit)="FillCartDetails()">
+        
+      <br>
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Product Id</mat-label>
+          <input  [(ngModel)]="addToCart.productId" name="productId"
+          matInput placeholder="Enter product Id">
+        </mat-form-field>
+      <br>
+      <br>
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Customer Id</mat-label>
+          <input  [(ngModel)]="addToCart.userId" name="userId"
+          matInput placeholder="Enter customer Id">
+        </mat-form-field>
+      <br>
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Cart Id</mat-label>
+          <input [(ngModel)]="addToCart.cartId"  name="cartId"
+           matInput placeholder="Enter cart Id">
+          
+        </mat-form-field>
+       <br>
+         <div class="text-center">
+          <button type="submit"  mat-raised-button color="primary">Add</button>
+         </div>
+        
+        
+      </form> 
+      <br>
+      
+      
+      
+      </mat-card>
+      </div>
+    
+      </div>
+    </div>
+  
+    </div>
+
+
+

@@ -1,0 +1,35 @@
+<div class="container">
+    <h1 class="title text-center">Order List</h1>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            
+          <div class="modal-body">
+              <h1 style="text-align: center ;">Payment Done</h1>
+              <img style="margin-left:50px;" src="https://icon-library.com/images/tick-icon-png/tick-icon-png-17.jpg" alt="">
+              
+            </div>
+        </div>
+      </div>
+    </div>
+  
+<table class="table" >
+    <thead class="thead-dark col-3 text-truncate">
+      <tr>
+        <th scope="col">Customer Id</th>
+        <th scope="col">User Id</th>
+        <th scope="col">Product Id</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let order of orderList">
+      <tr>
+        <td>{{order.cartId}}</td>
+        <td>{{order.userId}}</td>
+        <td>{{order.productId}}</td>  
+        <td><button class="btn btn-primary" (click)="pay(order.cartId)" data-toggle="modal" data-target="#exampleModal"> Make Payment</button></td>  
+      </tr>
+      
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,82 @@
+<div class="container">
+<h1 class=" title text-center">Admin Dashboard</h1><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Add New Product
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          
+        <div class="modal-body">
+            
+            <form (ngSubmit)="addProduct()">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Product Id</label>
+                    <input type="text" [(ngModel)]="addPro.productId" name="productId" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+
+                  </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Product Name</label>
+                  <input type="text"  [(ngModel)]="addPro.productName" name="productName"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Product Type</label>
+                    <input type="text" [(ngModel)]="addPro.productType" name="productType"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Category</label>
+                    <input type="text" [(ngModel)]="addPro.category" name="category" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">imageUrl</label>
+                    <input type="text" [(ngModel)]="addPro.imageUrl" name="imageUrl" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+
+                  </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Price</label>
+                  <input type="text" [(ngModel)]="addPro.price" name="price" class="form-control" id="exampleInputPassword1" >
+
+                </div>
+                <button  type="submit" class="btn btn-primary">Add</button>
+              </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ 
+
+
+  
+ <!-- order table   -->
+<table class="table" >
+    <thead class="thead-dark col-3 text-truncate">
+      <tr>
+        <th scope="col">Product Id</th>
+        <th scope="col">Product Name</th>
+        <th scope="col">Product Type</th>
+        <th scope="col">Category</th>
+        <th scope="col">Price</th>
+        <th scope="col">ImageUrl</th>
+        
+      </tr>
+    </thead>
+    <tbody *ngFor="let product of productList">
+      <tr>
+        <td>{{product.productId}}</td>
+        <td>{{product.productName}}</td>
+        <td>{{product.productType}}</td>
+        <td>{{product.category}}</td>
+        <td>{{product.price}}</td>
+        <td>{{product.imageUrl}}</td>
+        <td><a href="/admin-dashboard" class="btn btn-primary" (click)="del(product.productId)">Delete</a></td>
+        
+      </tr>
+      
+    </tbody>
+  </table>
+</div>
